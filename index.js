@@ -52,9 +52,22 @@ function capitalize(str) {
     return str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase();
 }
 
+function getInput() {
+    const allowedInputs = ["Rock", "Paper", "Scissors"];
+    let playerInput = capitalize(prompt("Write what you choose: "));
+    console.log("normal", playerInput)
+    let isValid = allowedInputs.includes(playerInput);
+    while (!isValid) {
+        playerInput = capitalize(prompt("Write a valid input: "));
+        console.log("error", playerInput)
+        isValid = allowedInputs.includes(playerInput);
+    }
+    return playerInput;
+}
+
 function game() {
     for (let i = 0; i < 5; i++) {
-        const playerSelection = capitalize(prompt("Write a choose:"));
+        const playerSelection = getInput();
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection), "--", playerSelection, computerSelection);
     }
