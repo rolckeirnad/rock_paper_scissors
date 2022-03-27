@@ -6,16 +6,21 @@ function computerPlay() {
 
 function playRound(e) {
     const playerSelection = e.srcElement.textContent;
+    console.log(e)
     const computerSelection = computerPlay();
     infoSection.textContent = `You choose ${playerSelection}. Computer choose ${computerSelection}.`
     //If player selection is equal to computer selection, it is a tie
     if (playerSelection == computerSelection) {
         result.textContent = "It's a tie.";
+        e.srcElement.classList.add('tie');
+        setTimeout(() => e.srcElement.classList.remove('tie'), 400);
         return;
     };
     //If player selection is Rock and computer selection is Scissors, player won.
     if (playerSelection == "Rock" && computerSelection == "Scissors") {
         result.textContent = "You Win!";
+        e.srcElement.classList.add('win');
+        setTimeout(() => e.srcElement.classList.remove('win'), 400);
         playerScore.textContent = ++playerPoints;
         checkScore();
         return;
@@ -23,6 +28,8 @@ function playRound(e) {
     //If player selection is Scissors and computer selection is Paper, player won.
     if (playerSelection == "Scissors" && computerSelection == "Paper") {
         result.textContent = "You Win!";
+        e.srcElement.classList.add('win');
+        setTimeout(() => e.srcElement.classList.remove('win'), 400);
         playerScore.textContent = ++playerPoints;
         checkScore();
         return;
@@ -30,12 +37,16 @@ function playRound(e) {
     //If player selection is Paper and computer selection is Rock, player won.
     if (playerSelection == "Paper" && computerSelection == "Rock") {
         result.textContent = "You Win!";
+        e.srcElement.classList.add('win');
+        setTimeout(() => e.srcElement.classList.remove('win'), 400);
         playerScore.textContent = ++playerPoints;
         checkScore();
         return;
         //Else player loose and computer won.
     } else {
         result.textContent = "You Lose!";
+        e.srcElement.classList.add('lose');
+        setTimeout(() => e.srcElement.classList.remove('lose'), 400);
         computerScore.textContent = ++computerPoints;
         checkScore();
         return;

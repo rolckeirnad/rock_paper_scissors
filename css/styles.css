@@ -50,6 +50,31 @@ body {
     height: 12vh;
     font-size: 3vw;
     font-weight: bolder;
+    transition: background-color 0.2s;
+}
+
+.buttonContainer>button:hover {
+    background-color: gray;
+    border: 1px solid black;
+    text-shadow: 2px 0px 0px black,
+        0px 2px 0px black,
+        -2px 0px 0px black,
+        0px -2px 0px black;
+}
+
+.buttonContainer>button.win {
+    background-color: #03ff03;
+    transition: background-color 0.1s;
+}
+
+.buttonContainer>button.lose {
+    background-color: #ff0303;
+    transition: background-color 0.1s;
+}
+
+.buttonContainer>button.tie {
+    background-color: black;
+    transition: background-color 0.1s;
 }
 
 .scoreContainer {
